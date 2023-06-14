@@ -5,8 +5,56 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CourseWorkWpf"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="MainWindow" Height="300" Width="600">
+    <Window.Resources>
+        <Style x:Key="LabelStaticResource" TargetType="Label">
+            <Setter Property="FontSize" Value="15"/>
+        </Style>
+        <Style x:Key="LabelNonStaticResource" TargetType="Label">
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="FontWeight" Value="Bold" />
+        </Style>
+    </Window.Resources>
+    <DockPanel>
+        <Grid DockPanel.Dock="Top" Height="30">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="6*"/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="8*"/>
+                </Grid.ColumnDefinitions>
+                <Label Content="Speed: " Style="{StaticResource LabelStaticResource}"/>
+                <Label Name="CounterOfChars" Content="0" Grid.Column="1" Style="{StaticResource LabelNonStaticResource}"/>
+                <Label Content="chars/min" Grid.Column="2" Style="{StaticResource LabelStaticResource}"/>
+            </Grid>
+            <Grid Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label Content="Fails: " Style="{StaticResource LabelStaticResource}"/>
+                <Label Name="CounterOfFails" Content="0" Grid.Column="1" Style="{StaticResource LabelNonStaticResource}"/>
+            </Grid>
+            <Grid Grid.Column="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="3*"/>
+                </Grid.ColumnDefinitions>
+                <Label Content="Dificulty: " Style="{StaticResource LabelStaticResource}"/>
+                <Label Content="{Binding ElementName=Dificult, Path=Value}" Grid.Column="1" Style="{StaticResource LabelNonStaticResource}"/>
+                <Slider x:Name="Dificult" Grid.Column="2" Maximum="10" TickFrequency="1" IsSnapToTickEnabled="True" Margin="0,7,0,2"/>
+            </Grid>
+        </Grid>
+        <Grid DockPanel.Dock="Top">
+         
 
-    </Grid>
+        </Grid>
+    </DockPanel>
 </Window>
