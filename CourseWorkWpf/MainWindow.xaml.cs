@@ -20,9 +20,20 @@ namespace CourseWorkWpf
     /// </summary>
     public partial class MainWindow : Window
     {
+        
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void Stop_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Start_Click(object sender, RoutedEventArgs e)
+        {
+            
         }
     }
 }
