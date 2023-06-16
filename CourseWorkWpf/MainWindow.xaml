@@ -61,7 +61,7 @@
                     <ColumnDefinition Width="8*"/>
                 </Grid.ColumnDefinitions>
                 <Label Content="Speed: " Style="{StaticResource LabelStaticResource}"/>
-                <Label Name="CounterOfChars" Content="{Binding Mode=OneWay}" Grid.Column="1" Style="{StaticResource LabelNonStaticResource}"/>
+                <Label Name="CounterOfChars" Content="{Binding userClass.chars, Mode=TwoWay}" Grid.Column="1" Style="{StaticResource LabelNonStaticResource}"/>
                 <Label Content="chars/min" Grid.Column="2" Style="{StaticResource LabelStaticResource}"/>
             </Grid>
             <Grid Grid.Column="1">
@@ -70,7 +70,7 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <Label Content="Fails: " Style="{StaticResource LabelStaticResource}"/>
-                <Label Name="CounterOfFails" Content="{Binding  Mode=OneWay}" Grid.Column="1" Style="{StaticResource LabelNonStaticResource}"/>
+                <Label Name="CounterOfFails" Content="{Binding userClass.fails, Mode=TwoWay}" Grid.Column="1" Style="{StaticResource LabelNonStaticResource}"/>
             </Grid>
             <Grid Grid.Column="2">
                 <Grid.ColumnDefinitions>
@@ -80,23 +80,23 @@
                 </Grid.ColumnDefinitions>
                 <Label Content="Dificulty: " Style="{StaticResource LabelStaticResource}"/>
                 <Label Content="{Binding ElementName=Dificult, Path=Value}" Grid.Column="1" Style="{StaticResource LabelNonStaticResource}"/>
-                <Slider x:Name="Dificult" Grid.Column="2" Maximum="5" TickFrequency="1" IsSnapToTickEnabled="True" Margin="0,7,0,2"/>
+                <Slider x:Name="Dificult" Value="{Binding userClass.dificult, Mode=TwoWay}" Grid.Column="2" Maximum="5" Minimum="1" TickFrequency="1" IsSnapToTickEnabled="True" Margin="0,7,0,2"/>
             </Grid>
             <Grid Grid.Column="3">
-                <CheckBox x:Name="isCaseSensitive" Content="Case Sensetive" FontSize="15" Margin="0,8,0,0" HorizontalAlignment="Center"/>
+                <CheckBox x:Name="isCaseSensitive" IsChecked="{Binding userClass.isCaseSensetive}" Content="Case Sensetive" FontSize="15" Margin="0,8,0,0" HorizontalAlignment="Center"/>
             </Grid>
         </Grid>
-        <Grid DockPanel.Dock="Top" Height="25">
+        <Grid DockPanel.Dock="Top" Height="30">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="3*"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Label x:Name="TextToWrite"  Style="{StaticResource LabelNonStaticResource}"/>
-            <Button x:Name="Start" Content="Start" Grid.Column="1" Margin="2" Background="LightGreen" Click="Start_Click"/>
-            <Button x:Name="Stop" Content="Stop" Grid.Column="2" Margin="2" Background="LightPink" Click="Stop_Click"/>
+            <Label x:Name="TextToWrite" Content="{Binding PhrasesToWrite}" Style="{StaticResource LabelStaticResource}"/>
+            <Button x:Name="StartBtn" Content="Start" Grid.Column="1" Margin="2" Background="LightGreen" Click="StartBtnCLick" IsEnabled="{Binding userClass.isStart}"/>
+            <Button x:Name="StopBtn" Content="Stop" Grid.Column="2" Margin="2" Background="LightPink" Click="StopBtnClick" IsEnabled="{Binding userClass.isStop}"/>
         </Grid>
-        <TextBox DockPanel.Dock="Top" x:Name="UserText" FontSize="20" Background="LightBlue" Margin="2"/>
+        <TextBox DockPanel.Dock="Top" x:Name="UserText" FontSize="20" Background="LightBlue" Margin="2" Text="{Binding userPhrases, Mode=TwoWay}"/>
         <Grid DockPanel.Dock="Top" Margin="2,0,2,0" Background="BlanchedAlmond">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>

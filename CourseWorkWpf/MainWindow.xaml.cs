@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CourseWorkWpf.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,20 +21,21 @@ namespace CourseWorkWpf
     /// </summary>
     public partial class MainWindow : Window
     {
-        
+        private ViewModel viewModel = new();
         public MainWindow()
         {
             InitializeComponent();
+            this.DataContext = viewModel;
         }
 
-        private void Stop_Click(object sender, RoutedEventArgs e)
+        private void StopBtnClick(object sender, RoutedEventArgs e)
         {
-
+            viewModel.Stop();
         }
 
-        private void Start_Click(object sender, RoutedEventArgs e)
+        private void StartBtnCLick(object sender, RoutedEventArgs e)
         {
-            
+            viewModel.Start();
         }
     }
 }
