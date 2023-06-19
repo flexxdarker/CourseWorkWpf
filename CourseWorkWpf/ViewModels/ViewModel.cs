@@ -79,8 +79,8 @@ namespace CourseWorkWpf.ViewModels
                         userClass.fails++;
                     }
                 }
-                int tmpTime = ((int)userClass.time.Minute);
-                //userClass.chars = userPhrases.Length / tmpTime;
+                int tmpTime = ((int)userClass.time.Ticks);
+                userClass.chars = userPhrases.Length / tmpTime;
             }
             userClass.isStop = false;
             userClass.isStart = true;
