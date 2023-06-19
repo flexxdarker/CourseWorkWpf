@@ -17,10 +17,12 @@
         <Style x:Key="LabelInBorders" TargetType="Label">
             <Setter Property="FontSize" Value="18"/>
             <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
         </Style>
         <Style x:Key="LabelControlsInBorders" TargetType="Label">
             <Setter Property="FontSize"  Value="13"/>
             <Setter Property="Margin" Value="0,2,0,0"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
         </Style>
         <Style x:Key="Borders" TargetType="{x:Type Border}">
             <Setter Property="BorderThickness" Value="1.5"/>
@@ -61,7 +63,7 @@
                     <ColumnDefinition Width="8*"/>
                 </Grid.ColumnDefinitions>
                 <Label Content="Speed: " Style="{StaticResource LabelStaticResource}"/>
-                <Label Name="CounterOfChars" Content="{Binding userClass.chars, Mode=TwoWay}" Grid.Column="1" Style="{StaticResource LabelNonStaticResource}"/>
+                <Label Name="CounterOfChars" Content="{Binding Chars, Mode=TwoWay}" Grid.Column="1" Style="{StaticResource LabelNonStaticResource}"/>
                 <Label Content="chars/min" Grid.Column="2" Style="{StaticResource LabelStaticResource}"/>
             </Grid>
             <Grid Grid.Column="1">

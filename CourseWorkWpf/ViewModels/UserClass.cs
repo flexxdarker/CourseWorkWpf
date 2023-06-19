@@ -10,7 +10,6 @@ namespace CourseWorkWpf.ViewModels
     [AddINotifyPropertyChangedInterface]
     internal class UserClass
     {
-        public TimeOnly time;
         public List<string> firstDificult = new List<string>();
         public List<string> secondDificult = new List<string>();
         public List<string> thirdDificult = new List<string>();
